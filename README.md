@@ -13,15 +13,11 @@ Students are encouraged to use GitHub Copilot to assist with the understanding o
 
 ## Content
 
-- [Setup](./setup/README.md)
-- [Exercise](./exercise/README.md)
-- [VO Demo](./vo-demo/README.md)
-
-## Content
-
 | Lesson | Est. Delivery Time | Skills |
 | ------ |:------------------:| ------ |
-| [Lesson](./lesson/README.md)  | 0 hr 0 min | Set up the development environment. |
+| [Setup](./setup/README.md)  | 0 hr 10 min | Set up the development environment. |
+| [Exercise](./exercise/README.md)  | 0 hr 80 min | Build a React Star Wars app using AI|
+| [Bonus - VO Demo](./vo-demo/README.md)  | 0 hr 15 min | A vO Demo |
 
 ## Internal
 

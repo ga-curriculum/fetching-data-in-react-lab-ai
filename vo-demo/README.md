@@ -5,8 +5,8 @@
 
 ## Overview
 
-[vO](https://v0.app/)
-[What is vO?](https://v0.app/docs/introduction#engineers)
+- [vO](https://v0.app/)
+- [What is vO?](https://v0.app/docs/introduction#engineers)
 
 ![](./assets/vo-homepage.png)
 
