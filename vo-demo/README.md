@@ -23,7 +23,8 @@ To see v0 in action, paste the prompt below into the field on the [vO homepage](
 
 <details>
 <summary>Sample VO Prompt</summary>
-```plaintext
+
+```
 You're a javascript react developer expert. Create a react application based on the info below.
 
 You will create a fetch request to the "https://swapi.dev/api/starships/" endpoint to request data for the app.
@@ -34,5 +35,6 @@ Use the following user stories as a guide as you build each feature:As a user, I
 ```
 </details>
 
+Here's what vO generated for me...
 
-![](./assets/vo-starwars-app)
+![](./assets/vo-starwars-app.png)
