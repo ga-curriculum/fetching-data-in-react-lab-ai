@@ -11,6 +11,8 @@ In this lab, we'll create an application that fetches and displays data from the
 
 During this exercise, you will practice making an API call and dynamically updating the DOM in React.
 
+You are encouraged to use GitHub Copilot to assist with debugging code and generating components.
+
 Below is a component hierarchy diagram to help you understand the structure of the application you will be building:
 
 ![Component hierarchy diagram](./assets/chd.png)
@@ -21,6 +23,71 @@ In the list below, you'll find a brief description of the role of each component
 - **StarshipSearch**: Allows users to submit a search form for the name of a starship.
 - **StarshipList**: Displays a list of starships held in state.
 - **StarshipCard**: A component used within `StarshipList` that displays information on a single starship.
+
+## Using AI to generate components
+
+[How to write better prompts for GitHub Copilot](https://github.blog/developer-skills/github/how-to-write-better-prompts-for-github-copilot/)
+
+**NOTE - do not run the prompt below, it's to illustrate some AI gotchas!**
+
+AI is meant to be a developer tool, it shouldn't be trusted blindly. Trust but verify!
+
+For example, let's say we wanted to use GitHub Copilot to generate some code based on the component hierarchy diagram descriptions from the previous section. 
+
+**You Do:** For example, let's say we wanted to use GitHub Copilot to generate some code based on the component hierarchy diagram descriptions from the previous section above. Go ahead and write out a sample prompt (but don't run it). There are a variety of ways to craft an effective prompt. A sample prompt is below.
+
+<details>
+  <summary>Sample GitHub Prompt</summary>
+
+  ```plaintext
+  You are a Javascript and React enigneering expert. In this lab, we'll create a react javascript (no typescript) application that fetches and displays data from the Star Wars API (SWAPI). You'll develop a feature that presents a list of starships and allows users to search for specific starships by name.
+
+  In the list below, you'll find a brief description of the role of each component in your app:
+
+  App: The root component that orchestrates the entire application.
+  StarshipSearch: Allows users to submit a search form for the name of a starship.
+  StarshipList: Displays a list of starships held in state.
+  StarshipCard: A component used within StarshipList that displays information on a single starship.
+
+  Generate the StarshipSearch, StarshipList, and StarshipCard components.
+  ```
+</details>
+
+Here's the output based on the prompt above. 
+
+![](./assets/wireup-complete.png)
+
+So far so good. I also told GitHub. Copilot to go ahead an help wire up the componets. 
+
+![](./assets/wireup.png)
+
+When I run my server I get an error and am unable to load any starships. Take a look at the generated code from `App.jsx` below and see if you can figure out why. 
+
+```javascript
+  useEffect(() => {
+    const fetchStarships = async () => {
+      try {
+        const url = "https://swapi.dev/api/starships/";
+        setLoading(true);
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Failed to fetch starships");
+        }
+        const data = await response.json();
+        console.log(data);
+        setStarships(data || []);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStarships();
+  }, []);
+```
+
+Anything amiss with the `url` variable? It should be `swapi.info` not `swapi.dev`. The point is that AI can be extremely helpful, but always verify the generated code. Now onto the lab...
 
 ## User stories
 
@@ -73,11 +140,15 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    >
    > This code should go between the `fetch()` call and the `return` statement in your service function.
 
+   🚀 _AI Prompt Suggestion_: Could you use AI to generate the fetch try-catch block request to the SWAPI endpoint? If so, make sure to verify the URL.
+
 4. Create each of the components listed below.
 
    - `src/components/StarshipSearch/StarshipSearch.jsx`
    - `src/components/StarshipList/StarshipList.jsx`
    - `src/components/StarshipCard/StarshipCard.jsx`
+
+    🚀 _AI Prompt Suggestion_: Could you use AI to generate the StarshipSearch, StarshipList, and StarshipCard components by describing their hierarchy? Additionally, could you describe the 4 pieces of data (props) that each card should render? 
 
 5. Import `StarshipSearch` and `StarshipList` at the top of `App.jsx`.  Import the `StarshipCard` component in `StarshipList.jsx`. You'll use the `StarshipCard` when mapping through `props.starships` in the `StarshipList` component.
 
@@ -89,11 +160,17 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    >
    > This is an appropriate implementation since this API doesn't have search functionality, and the initial data won't go stale. Note that this is not appropriate for all apps! It just happens to work well here.
 
+    🚀 _AI Prompt Suggestion_: Could you use AI to generate the state variables here? 
+
 7. Import `useEffect` in `App`. Use this to call your service function when the page loads. Set the retrieved data to both the `starshipsData` and `displayedStarships` state.
+
+    🚀 _AI Prompt Suggestion_: Could you use AI to help implement this ask?
 
 8. Display the starship results! Refer to the user stories to determine the implementation details for this step. At the end of this step, your `StarshipList` and `StarshipCard` components should be complete. Do not attempt to implement search functionality before you have these finalized.
 
    > 💡 Because data from the API is loaded asynchronously, there are times when the data may not be available to render. In this case, you may want to display a "Loading…" message instead.
+
+
 
 9. Time to implement the search feature!
 
@@ -106,6 +183,8 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    - Call a new search function in the `App` component. You'll need to write this function and pass it on props to this component. Pass the search input's state to it as an argument. We'll return to this in the next step.
    - Save the search input's current state into a new state variable in the `StarshipSearch` component called `prevSearchTerm`. We're doing this to lay the groundwork for completing one of our future user stories (users can see what they just searched for).
    - Reset the search input's state to an empty string (`''`) so the user can search for another name without clearing the input themselves.
+
+    🚀 _AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?
 
 10. You're almost done with the search functionality; the rest of the work is in the `App` component.
 
@@ -122,6 +201,8 @@ Your goal is to implement the user stories listed above. Follow the steps below 
 
     At the end of this step, you should be able to conduct a search and see all the starships that match the search you made.
 
+    🚀 _AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?
+
 11. It's just detail work from here!
 
     > 👤 This step will implement this user story:
@@ -135,6 +216,8 @@ Your goal is to implement the user stories listed above. Follow the steps below 
 
     Use the state variable you created in step 9 (`prevSearchTerm`) to display the previous search query to the user. If the user has not conducted a search, display the text `"Search for a starship by name."` instead.
 
+    🚀 _AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?
+
 12. You've made it, it's the last step!
 
     > 👤 This step will implement this user story:
@@ -144,6 +227,8 @@ Your goal is to implement the user stories listed above. Follow the steps below 
     You've got this! Think through what you'll need and what tools you already have to accomplish this last user story.
 
     > 💡 Hint: What happens if you filter the starship state using an empty string?
+
+    🚀 _AI Prompt Suggestion_: Could you use the user story to help AI assist with this task?
 
 ## Level Up
 
