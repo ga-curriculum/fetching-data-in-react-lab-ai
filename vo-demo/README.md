@@ -12,9 +12,9 @@
 
 From the vO docs...
 
->Turn your ideas into real web apps with v0.
+  > Turn your ideas into real web apps with v0.
 
-> v0 turns your ideas into real web apps, no coding required. Describe what you want with natural language, and v0's intelligent agent builds it for you using modern frontend tools. v0 can search the web, inspect sites, automatically fix errors, and integrate with external tools. By removing the technical barriers to web development, anyone can go from concept to working software in minutes.
+  > v0 turns your ideas into real web apps, no coding required. Describe what you want with natural language, and v0's intelligent agent builds it for you using modern frontend tools. v0 can search the web, inspect sites, automatically fix errors, and integrate with external tools. By removing the technical barriers to web development, anyone can go from concept to working software in minutes.
 
 
 ## Use vO to generate the Star Wars App

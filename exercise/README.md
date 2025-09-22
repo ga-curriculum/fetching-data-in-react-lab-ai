@@ -24,7 +24,9 @@ In the list below, you'll find a brief description of the role of each component
 - **StarshipList**: Displays a list of starships held in state.
 - **StarshipCard**: A component used within `StarshipList` that displays information on a single starship.
 
-## Using AI to generate components
+<br>
+
+## Using AI to Generate Components - Trust but Verify!
 
 [How to write better prompts for GitHub Copilot](https://github.blog/developer-skills/github/how-to-write-better-prompts-for-github-copilot/)
 
@@ -63,7 +65,7 @@ So far so good. I also told GitHub. Copilot to go ahead an help wire up the comp
 
 When I run my server I get an error and am unable to load any starships. Take a look at the generated code from `App.jsx` below and see if you can figure out why. 
 
-```javascript
+```js
   useEffect(() => {
     const fetchStarships = async () => {
       try {
@@ -89,6 +91,8 @@ When I run my server I get an error and am unable to load any starships. Take a 
 
 Anything amiss with the `url` variable? It should be `swapi.info` not `swapi.dev`. The point is that AI can be extremely helpful, but always verify the generated code. Now onto the lab...
 
+<br>
+
 ## User stories
 
 Use the following user stories as a guide as you build each feature:
@@ -108,6 +112,8 @@ Use the following user stories as a guide as you build each feature:
 
 - As a user, I should be able to reset the search by clicking a button labeled **Show all starships**. This button should only be shown if I have applied a search filter. This button should effectively clear my last search query.
 
+<br>
+
 ## Lab exercise
 
 Your goal is to implement the user stories listed above. Follow the steps below to help you accomplish this:
@@ -122,7 +128,11 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    >
    > As a user, I should see the `name`, `starship_class`, `manufacturer`, and `model` data for a starship in each card.
 
+<br>
+
 2. Create a `src/services/starshipService.js` service module and ensure you make all API/fetch calls from this module. Use named exports to expose AJAX functionality as needed, for example, `export { index }` to obtain all starships.
+
+<br>
 
 3. Create a service function to retrieve a list of starships.
 
@@ -140,7 +150,9 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    >
    > This code should go between the `fetch()` call and the `return` statement in your service function.
 
-   🚀 _AI Prompt Suggestion_: Could you use AI to generate the fetch try-catch block request to the SWAPI endpoint? If so, make sure to verify the URL.
+   🚀 **_AI Prompt Suggestion_: Could you use AI to generate the fetch try-catch block request to the SWAPI endpoint? If so, make sure to verify the URL.**
+
+<br>
 
 4. Create each of the components listed below.
 
@@ -148,9 +160,13 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    - `src/components/StarshipList/StarshipList.jsx`
    - `src/components/StarshipCard/StarshipCard.jsx`
 
-    🚀 _AI Prompt Suggestion_: Could you use AI to generate the StarshipSearch, StarshipList, and StarshipCard components by describing their hierarchy? Additionally, could you describe the 4 pieces of data (props) that each card should render? 
+    🚀 **_AI Prompt Suggestion_: Could you use AI to generate the StarshipSearch, StarshipList, and StarshipCard components by describing their hierarchy? Additionally, could you describe the 4 pieces of data (props) that each card should render?**
+
+<br>
 
 5. Import `StarshipSearch` and `StarshipList` at the top of `App.jsx`.  Import the `StarshipCard` component in `StarshipList.jsx`. You'll use the `StarshipCard` when mapping through `props.starships` in the `StarshipList` component.
+
+<br>
 
 6. Import `useState` in `App`, and create a new state variable called `starshipsData`. Set its initial state to an empty array (`[]`). Create another state variable called `displayedStarships`. Also, set its initial state to an empty array.
 
@@ -160,17 +176,21 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    >
    > This is an appropriate implementation since this API doesn't have search functionality, and the initial data won't go stale. Note that this is not appropriate for all apps! It just happens to work well here.
 
-    🚀 _AI Prompt Suggestion_: Could you use AI to generate the state variables here? 
+    🚀 **_AI Prompt Suggestion_: Could you use AI to generate the state variables here?** 
+
+<br>
 
 7. Import `useEffect` in `App`. Use this to call your service function when the page loads. Set the retrieved data to both the `starshipsData` and `displayedStarships` state.
 
-    🚀 _AI Prompt Suggestion_: Could you use AI to help implement this ask?
+    🚀 **_AI Prompt Suggestion_: Could you use AI to help implement this ask?**
+
+<br>
 
 8. Display the starship results! Refer to the user stories to determine the implementation details for this step. At the end of this step, your `StarshipList` and `StarshipCard` components should be complete. Do not attempt to implement search functionality before you have these finalized.
 
    > 💡 Because data from the API is loaded asynchronously, there are times when the data may not be available to render. In this case, you may want to display a "Loading…" message instead.
 
-
+<br>
 
 9. Time to implement the search feature!
 
@@ -184,7 +204,9 @@ Your goal is to implement the user stories listed above. Follow the steps below 
    - Save the search input's current state into a new state variable in the `StarshipSearch` component called `prevSearchTerm`. We're doing this to lay the groundwork for completing one of our future user stories (users can see what they just searched for).
    - Reset the search input's state to an empty string (`''`) so the user can search for another name without clearing the input themselves.
 
-    🚀 _AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?
+    🚀 **_AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?**
+
+<br>
 
 10. You're almost done with the search functionality; the rest of the work is in the `App` component.
 
@@ -201,7 +223,9 @@ Your goal is to implement the user stories listed above. Follow the steps below 
 
     At the end of this step, you should be able to conduct a search and see all the starships that match the search you made.
 
-    🚀 _AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?
+    🚀 **_AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?**
+
+<br>
 
 11. It's just detail work from here!
 
@@ -216,7 +240,9 @@ Your goal is to implement the user stories listed above. Follow the steps below 
 
     Use the state variable you created in step 9 (`prevSearchTerm`) to display the previous search query to the user. If the user has not conducted a search, display the text `"Search for a starship by name."` instead.
 
-    🚀 _AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?
+    🚀 **_AI Prompt Suggestion_: Could you use the user story and the prompts to help AI generate the search functionality step by step?**
+
+<br>
 
 12. You've made it, it's the last step!
 
@@ -228,7 +254,9 @@ Your goal is to implement the user stories listed above. Follow the steps below 
 
     > 💡 Hint: What happens if you filter the starship state using an empty string?
 
-    🚀 _AI Prompt Suggestion_: Could you use the user story to help AI assist with this task?
+    🚀 **_AI Prompt Suggestion_: Could you use the user story to help AI assist with this task?**
+
+<br>
 
 ## Level Up
 
