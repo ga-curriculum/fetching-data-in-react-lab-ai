@@ -16,7 +16,7 @@ Students are encouraged to use GitHub Copilot to assist with the understanding o
 | Lesson | Est. Delivery Time | Skills |
 | ------ |:------------------:| ------ |
 | [Setup](./setup/README.md)  | 0 hr 10 min | Set up the development environment. |
-| [Exercise](./exercise/README.md)  | 0 hr 80 min | Build a React Star Wars app using AI|
+| [Exercise](./exercise/README.md)  | 0 hr 65 min | Build a React Star Wars app using AI|
 | [Bonus - VO Demo](./vo-demo/README.md)  | 0 hr 15 min | A vO Demo |
 
 ## Internal

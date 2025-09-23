@@ -34,9 +34,7 @@ In the list below, you'll find a brief description of the role of each component
 
 AI is meant to be a developer tool, it shouldn't be trusted blindly. Trust but verify!
 
-For example, let's say we wanted to use GitHub Copilot to generate some code based on the component hierarchy diagram descriptions from the previous section. 
-
-**You Do:** For example, let's say we wanted to use GitHub Copilot to generate some code based on the component hierarchy diagram descriptions from the previous section above. Go ahead and write out a sample prompt (but don't run it). There are a variety of ways to craft an effective prompt. A sample prompt is below.
+For example, let's say we wanted to use GitHub Copilot to generate some code based on the component hierarchy diagram descriptions from the previous section above. Go ahead and write out a sample prompt (but don't run it). There are a variety of ways to craft an effective prompt. A sample prompt is below.
 
 <details>
   <summary>Sample GitHub Prompt</summary>
@@ -54,6 +52,8 @@ For example, let's say we wanted to use GitHub Copilot to generate some code bas
   Generate the StarshipSearch, StarshipList, and StarshipCard components.
   ```
 </details>
+
+<br>
 
 Here's the output based on the prompt above. 
 
@@ -116,7 +116,7 @@ Use the following user stories as a guide as you build each feature:
 
 ## Lab exercise
 
-Your goal is to implement the user stories listed above. Follow the steps below to help you accomplish this:
+Your goal is to implement the user stories listed above. Follow the steps below to help you accomplish this and think about which steps GitHub Copilot could assist with. (There are several 🚀 AI Prompt Suggestions below).  
 
 1. Research the documentation of [**SWAPI**](https://swapi.info) to find the endpoint for the `starships` resource. Figuring out documentation is a critical skill for a developer, so devote 10-15 minutes just to looking through everything. You may not understand it all, but you should learn a bit in the process.
 
